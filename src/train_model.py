@@ -24,7 +24,7 @@ def Random_Forest(x_train, x_test, y_train, y_test):
 def XGBoost(x_train, x_test, y_train, y_test):
     model = XGBClassifier(n_estimators=100, learning_rate=0.1, max_depth = 3, random_state=42)
     model.fit(x_train, y_train)
-    predict = model.predict(y_train)
+    predict = model.predict(x_test)
     accuracy = accuracy_score(y_test, predict)
     accuracy = accuracy * 100
     return model, round(accuracy, 2)
